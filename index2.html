@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>WAQYAKUY</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/offcanvas.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">WAQYAKUY</span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link"  href="http://waqyakuygame.herokuapp.com/">Juego <span class="sr-only">(current)</span></a>
+
+          </li>
+
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input id="buske" class="form-control mr-sm-2" type="text" placeholder="Buscar animal">
+          <button id="buski" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+      </div>
+    </nav>
+
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-12 col-md-9">
+          <p class="float-right hidden-md-up">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="jumbotron">
+            <h1 id="nombre"></h1>
+          </div>
+          <div>
+
+            </div>
+            <div class="row">
+              <img id="mapo" class="col-6 col-md-3 " height="200px" src="photos/jaguar.jpg" alt="Tatu">
+              <img id="foto" class="col-6 col-md-3 " height="200px" src="http://www.infoanimales.com/wp-content/uploads/2013/03/tatu-carreta-2.jpeg" alt="Tatu">
+              <div class="media-body">
+
+
+
+            </div>
+
+
+
+          <div class="row">
+            <div class="col-lg-12">
+              <h2>Caracteristicas</h2>
+              <p id="caracte"></p>
+
+            </div><!--/span-->
+
+            <div class="col-lg-12">
+              <h2>Alimentacion</h2>
+              <p id="aliwi"></p>
+
+            </div><!--/span-->
+            <div class="col-lg-12">
+              <h2>Habitat</h2>
+              <p id="habitat"></p>
+
+            </div><!--/span-->
+            <div class="col-lg-12">
+              <h2>Area</h2>
+              <p id="are"></p>
+
+            </div><!--/span-->
+            <div class="col-lg-12">
+              <h2>Taxonomia</h2>
+              <p id="taxo"></p>
+
+            </div><!--/span-->
+            <div class="col-lg-12">
+              <h2>Noticias</h2>
+              <p id="noti"></p>
+
+            </div><!--/span-->
+
+          </div><!--/row-->
+          <div class="col-lg-6">
+            <button id="feik" type="button" class="btn btn-outline-danger btn-lg">Reportar</button>
+
+
+          </div>
+        </div><!--/span-->
+      </div>
+        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">TATU CARRETA</a>
+            <a href="#" class="list-group-item">Orden Alfabetico</a>
+
+            <a href="#" class="list-group-item">ver Zona</a>
+            <a href="#" class="list-group-item">Ver Familia</a>
+            <a href="#" class="list-group-item">Animal Random</a>
+            <a href="#" class="list-group-item">Donar</a>
+            <a href="https://www.facebook.com/Waqyakuy-784396895072030/" class="list-group-item">Fanpage</a>
+            <a href="http://waqyakuygame.herokuapp.com/" class="list-group-item">Juego</a>
+
+
+
+          </div>
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Dalgom 2017</p>
+      </footer>
+
+    </div><!--/.container-->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+    function getGET(){
+   var loc = document.location.href;
+   var getString = loc.split('?')[1];
+   var GET = getString.split('&');
+   var get = {};//this object will be filled with the key-value pairs and returned.
+
+   for(var i = 0, l = GET.length; i < l; i++){
+      var tmp = GET[i].split('=');
+      get[tmp[0]] = unescape(decodeURI(tmp[1]));
+   }
+   return get;
+}
+
+var get = getGET();
+
+    var ani=get.id;
+    $(document).ready(function(){
+      $("#buski").click(function(){
+        var bu = $("#buske").val();
+        $.get("http://127.0.0.1:8000/animal/", function(dati, status){
+          dati.forEach(function(elem){
+            console.log(elem.animal_id);
+            if(elem.animal_name==bu)
+              window.location = "file:///home/debra/waq/index2.html?id=".concat(elem.animal_id);
+          });
+      });
+      });
+      $.get("http://127.0.0.1:8000/animal/".concat(ani,"/?format=json"), function(deta, status){
+        ani = deta.animal_id;
+        $("#nombre").append(deta.animal_name);
+        $("#foto").attr("src","photos/".concat(deta.animal_name,".jpg"));
+        $("#mapo").attr("src","maps/".concat(deta.animal_name,".png"));
+        $.get("http://127.0.0.1:8000/characteristic/", function(data, status){
+          data.forEach(function(elem){
+            if(elem.animal==ani)
+              $("#caracte").append(elem.description);
+          });
+        });
+
+    $.get("http://127.0.0.1:8000/diet/", function(data, status){
+      data.forEach(function(elem){
+        if(elem.animal==ani)
+          $("#aliwi").append(elem.food_name);
+      });
+  });
+
+  $.get("http://127.0.0.1:8000/habitat/", function(data, status){
+    data.forEach(function(elem){
+      if(elem.animal==ani)
+        $("#habitat").append(elem.description);
+    });
+});
+
+$.get("http://127.0.0.1:8000/animalarea/", function(data, status){
+  data.forEach(function(elem){
+    if(elem.animal==ani)
+      $.get("http://127.0.0.1:8000/area/".concat(elem.area,"/?format=json"), function(doto, status){
+        $("#are").append(doto.area_name);
+    });
+  });
+});
+
+$.get("http://127.0.0.1:8000/taxonomy/", function(data, status){
+  data.forEach(function(elem){
+    if(elem.animal==ani)
+      $("#taxo").append(elem.species);
+  });
+});
+
+$.get("http://127.0.0.1:8000/starring/", function(data, status){
+  data.forEach(function(elem){
+    if(elem.animal==ani)
+      $.get("http://127.0.0.1:8000/news/".concat(elem.news,"/?format=json"), function(doto, status){
+        $("#noti").append(doto.content);
+    });
+  });
+});
+
+
+    });
+
+  });
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/offcanvas.js"></script>
+
+  </body>
+</html>

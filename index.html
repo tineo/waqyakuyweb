@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+
+      $.get("http://127.0.0.1:8000/animal/1/?format=json",function(data,status){
+        $("h1").append(data.animal_name);
+      });
+    });
+    </script>
+    </head>
+
+
+
+
+  <body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">Navbar</a>
+
+          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="bmd-layout-container bmd-drawer-f-l">
+  <header class="bmd-layout-header">
+    <div class="navbar navbar-light bg-faded">
+      <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
+        <span class="sr-only">Toggle drawer</span>
+        <i class="material-icons">menu</i>
+      </button>
+      <ul class="nav navbar-nav">
+        <li class="nav-item">Tatu carreta</li>
+      </ul>
+    </div>
+  </header>
+  <div id="dw-s1" class="bmd-layout-drawer bg-faded">
+    <header>
+      <a class="navbar-brand">Menu</a>
+    </header>
+    <ul class="list-group">
+      <a class="list-group-item">Orden Alfabetico</a>
+      <a class="list-group-item">Ver Zona</a>
+      <a class="list-group-item">Ver Familia</a>
+      <a class="list-group-item">Animal Random</a>
+      <a class="list-group-item">Donar</a>
+    </ul>
+  </div>
+  <main class="bmd-layout-content">
+    <div class="container">
+      <p></p>
+    </div>
+  </main>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-3">
+    <a href="#" class="thumbnail">
+      <img src="http://www.infoanimales.com/wp-content/uploads/2013/03/tatu-carreta-2.jpeg" alt="mapa">
+    </a>
+  </div>
+  <div class="col-xs-6 col-md-3">
+    <a href="#" class="thumbnail">
+      <img src="https://ugc.kn3.net/i/origin/https://www.sib.gov.ar/archivos/thumbs/472x_20120601172813_Priodontes_maximus_JM2.jpg" alt="tatu carreta">
+    </a>
+  </div>
+
+</div>
+
+<div class="col-lg-12">
+
+    <div >
+        <h1 class="display-3">Tatu Carreta</h1>
+    </div>
+
+    <div class="row marketing">
+          <div class="col-lg-12">
+            <h4>Caracteristicas</h4>
+            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+            <h4>Alimentacion</h4>
+            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+            <h4>Habitad</h4>
+            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          </div>
+
+          <div class="col-lg-12">
+            <h4>Area</h4>
+            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+            <h4>Taxonomia</h4>
+            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+            <h4>Noticias</h4>
+            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <button type="button" class="btn btn-secondary btn-lg">Reportar</button>
+
+        </div>
+      </div>
+</div>
+
+  </body>
+</html>
